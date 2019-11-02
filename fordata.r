@@ -6,14 +6,29 @@ Rebol [
 	as object elements on the word you have provided
 	A /WHERE refinement is available and you can specify a condition for the loop to be exectude (ALL BLOCK condition)
 	}
-	Version: 1.1
+	Version: 1.11
 	Author: "Giuseppe Chillemi"
 	TBD: {
+		Add columns/data length verification and error message
+
 		Investigate on the advantages of not using an object but a simple block to store row values
 		whenever possible, it should avoid the overhead of context creation which should be meaningful
 		for very large data blocks
 		
+		Add columns name warnings if column name visual is different than original once converted. Consider
+			moving to block with string
+		
+		Add support for all data schemes listed in CSV codec: https://github.com/red/red/wiki/CSV-codec
+
+		Investigate on using on array of functions/objects and other data
+		
+		Test direct modification of data and its safeness
+	
 		Investigate on a way to not make accessible to passed code other function words other than word object
+		
+		Add support to custom datatypes/data structures once created a specification
+		
+		Should FORDATA be renamed to FORROW ? Ok, it sound weird with those double R but it is more meaningful
 	}
 	History: {
 		1.1: Headings block (first data block) no longer copied
@@ -28,7 +43,7 @@ Rebol [
 fordata: func [
 	"Iterate a block of code on data block where columns data is using column name"
 	'data-name [word!]
-	;Annotation: Word binding should be the main one once object is created. To verify, just in case 
+	;Annotation: Word binding should be the main one once object is created. To be verified, just in case 
 	"The object name"
 	data-block [block!]
 	"the source with headings on top"
@@ -85,3 +100,4 @@ fordata: func [
 	;Remove the row object word from global word list
 	unset data-name
 ]
+
