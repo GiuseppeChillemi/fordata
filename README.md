@@ -38,3 +38,4 @@ REFINEMENTS:
 
           condition    [block!] {Block where you can use WORD/COLUMN in a condition to express valid ROWS.}
 
+SEE **example.r** for usage examples
