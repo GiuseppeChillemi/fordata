@@ -28,7 +28,7 @@ Rebol [
 fordata: func [
 	"Iterate a block of code on data block where columns data is using column name"
 	'data-name [word!]
-	;Domanda: il contesto è quello principale, oppure è quello della funzione ?
+	;Annotation: Word binding should be the main one once object is created. To verify, just in case 
 	"The object name"
 	data-block [block!]
 	"the source with headings on top"
