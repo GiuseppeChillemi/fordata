@@ -6,7 +6,6 @@ Rebol [
 	as object elements on the word you have provided
 	A /WHERE refinement is available and you can specify a condition for the loop to be exectude (ALL BLOCK condition)
 	}
-	;x
 	Version: 1.2
 	Author: "Giuseppe Chillemi"
 	TBD: {
@@ -138,7 +137,7 @@ fordata: func [
 		; Executes the block of code provided to the function
 		either where = true [
 			if all condition [
-				if not none? placeh [do reduce [probe to-set-word ph-word copy ph-container]]
+				if not none? placeh [do reduce [to-set-word ph-word probe copy ph-container]]
 				do code-block
 			]
 		]

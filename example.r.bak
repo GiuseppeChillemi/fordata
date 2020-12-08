@@ -78,7 +78,7 @@ fordata docs dataset2 [
 
 fordata docs dataset2 [
 	fordata/where/placeh row dataset  [
-		probe holders
+		probe "a"
 	] [row/name = "amazon"] holders
 ]
 
