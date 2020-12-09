@@ -1,0 +1,47 @@
+Red [
+	;loop-on
+	;test della funzione , se il concetto va bene
+	;alpha
+
+]
+
+loop-on: function [
+	data-name		;the-name to use
+	data-block ;the source with headings on top
+	code-block	;The code to execute ... or the code to compose ?????
+] 
+[
+	idx: 0
+	headings: copy first data-block
+	data-block: next data-block
+	row-obj-specs: copy []
+	forall data-block [
+		forall  headings [
+			append row-obj-specs to-set-word first headings 
+			append row-obj-specs data-block/1/(index? headings)
+		]
+	probe row-obj-specs
+	do reduce compose [to-set-word (to-lit-word data-name) make object! row-obj-specs]
+	probe get data-name
+	do code-block	
+	]
+]
+
+loop-on 'row [[a b c d][1 2 3 4]]	[probe row]
+
+
+
+halt
+
+;	bind code-block 'loop-on ;It does not work, raw is not recognized
+;	do code-block
+
+
+;	probe (data-name)
+;	probe do do compose/deep [to-path [(data-name) 1]]
+;	probe first data-name
+;	probe second data-name
+;	probe third data-name
+
+;potrei provare ad appendere solo la parola e non fare l'oggetto
+																											;Si potrebbe usare anche un COMPOSE !

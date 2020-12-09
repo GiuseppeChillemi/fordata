@@ -6,7 +6,6 @@ Rebol [
 	as object elements on the word you have provided
 	A /WHERE refinement is available and you can specify a condition for the loop to be exectude (ALL BLOCK condition)
 	}
-	;x
 	Version: 1.2
 	Author: "Giuseppe Chillemi"
 	TBD: {
